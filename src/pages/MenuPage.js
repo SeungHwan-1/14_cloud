@@ -8,7 +8,7 @@ const MenuPage = () => {
  
       const fetchMenu = async () => {
          try {
-            const response = await fetch("https://gogog.store:9999/menu/select"); 
+            const response = await fetch("https://gogog.store:9999/menu/sele1ct"); 
             if (!response.ok) {
                throw new Error("Network response was not ok");
             }
