@@ -2,13 +2,13 @@ import { useEffect, useState } from "react";
 
 
 const MenuPage = () => {
-   const [menuList, setMenuList] = useState([]);
+   const [menuList, setMenuList] = useState([{}]);
 
    useEffect(() => {
  
       const fetchMenu = async () => {
          try {
-            const response = await fetch("https://gogog.store:9999/menu/sele1ct"); 
+            const response = await fetch("https://gogog.store:9999/menu/select"); 
             if (!response.ok) {
                throw new Error("Network response was not ok");
             }
