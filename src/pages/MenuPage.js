@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 
 const MenuPage = () => {
-   const [menuList, setMenuList] = useState([{}]);
+   const [menuList, setMenuList] = useState([]);
 
    useEffect(() => {
  
