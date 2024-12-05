@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 
 const MenuPage = () => {
-   const [menuList, setMenuList] = useState([{}]);
+   const [menuList, setMenuList] = useState([]);
 
    useEffect(() => {
  
@@ -13,7 +13,7 @@ const MenuPage = () => {
                throw new Error("Network response was not ok");
             }
             const data = await response.json();
-            setMenuList(data); 
+            setMenuList(data);  
          } catch (error) {
             console.error("Error fetching menu data:", error); 
          }
