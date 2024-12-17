@@ -7,8 +7,8 @@ const MenuPage = () => {
    useEffect(() => {
  
       const fetchMenu = async () => {
-         
-            const response = await fetch("https://gogog.store:3013/api/test");           
+      
+            const response = await fetch("https://gogog.store:3013/menu/select");           
             const data = await response.json();
             setMenuList(data);  
          
