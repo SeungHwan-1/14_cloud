@@ -7,16 +7,11 @@ const MenuPage = () => {
    useEffect(() => {
  
       const fetchMenu = async () => {
-         try {
-            const response = await fetch("https://gogog.store:9999/menu/select"); 
-            if (!response.ok) {
-               throw new Error("Network response was not ok");
-            }
+         
+            const response = await fetch("https://gogog.store:3013/api/test");           
             const data = await response.json();
             setMenuList(data);  
-         } catch (error) {
-            console.error("Error fetching menu data:", error); 
-         }
+         
       };
 
       fetchMenu(); 
