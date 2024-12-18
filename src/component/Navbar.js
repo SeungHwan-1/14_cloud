@@ -22,6 +22,11 @@ const Navbar = () => {
                 isActive? activateStyle : null
             }>MenuPage</NavLink>
             </li>
+            <li>
+                <NavLink to="/lunch" style={({isActive})=>
+                isActive? activateStyle : null
+            }>런치</NavLink>
+            </li>
         </ul>
         </>
     )
