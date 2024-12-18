@@ -25,7 +25,7 @@ const Navbar = () => {
             <li>
                 <NavLink to="/lunch" style={({isActive})=>
                 isActive? activateStyle : null
-            }>런치</NavLink>
+            }>런1치</NavLink>
             </li>
         </ul>
         </>
