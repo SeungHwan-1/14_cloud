@@ -1,33 +1,28 @@
 import React, { useState } from 'react';
 
-const Lunch = () => {
-  const [responseData, setResponseData] = useState(null);
-  const [error, setError] = useState(null);
+const LoadLunch = async (e) => {
+  e.preventDefault();
 
-  const LoadLunch = async (e) => {
-    e.preventDefault();
+  try {
+    const response = await fetch(
+      'https://open.neis.go.kr/hub/mealServiceDietInfo?KEY=e2d93272fec44184b467b6accf92f079&ATPT_OFCDC_SC_CODE=T10&SD_SCHUL_CODE=9290083',
+      { method: 'GET' }
+    );
 
-
-   
-    try {
-      const response = await fetch('/api/mealService', { method: 'GET' });
-         if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-      const textData = await response.text(); // 응답 내용을 텍스트로 먼저 확인
-    console.log('Response text:', textData); // HTML 오류 페이지나 다른 오류가 반환될 수 있습니다.
-
-      const data = JSON.parse(textData); // 직접 파싱
-     setResponseData(data);
-     setError(null);
-      
-      
-      console.log('Response:', data);
-    } catch (err) {
-      setError(err.message); // 에러 메시지
-      console.error('Error fetching data:', err);
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`); // 응답 코드 체크
     }
-  };
+
+    const data = await response.json(); // JSON 형식으로 파싱
+    setResponseData(data);
+    setError(null);
+    console.log('Response:', data);
+  } catch (err) {
+    setError(err.message);
+    console.error('Error fetching data:', err);
+  }
+};
+
 
   return (
     <>
@@ -40,7 +35,7 @@ const Lunch = () => {
       {error && <p style={{ color: 'red' }}>Error: {error}</p>}
     </>
   );
-};
+
 
 export default Lunch;
 
