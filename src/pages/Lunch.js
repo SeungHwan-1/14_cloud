@@ -8,25 +8,25 @@ const Lunch = () => {
     e.preventDefault();
 
 
-    const neis = require("neis");
-    let meal = await neis.createSchool(neis.REGION.BUSAN, "C100000394", neis.TYPE.HIGH).getMeal(2019, 8);
+   
+    try {
+      const response = await fetch('/api/mealService', { method: 'GET' });
+         if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      const textData = await response.text(); // 응답 내용을 텍스트로 먼저 확인
+    console.log('Response text:', textData); // HTML 오류 페이지나 다른 오류가 반환될 수 있습니다.
 
-    
-    // try {
-    //   const response = await fetch('/api/mealService', { method: 'GET' });
+      const data = JSON.parse(textData); // 직접 파싱
+     setResponseData(data);
+     setError(null);
       
-    //   if (!response.ok) {
-    //     throw new Error('Network response was not ok');
-    //   }
       
-    //   const data = await response.json();
-    //   setResponseData(data); // 데이터 저장
-    //   setError(null); // 에러 초기화
-    //   console.log('Response:', data);
-    // } catch (err) {
-    //   setError(err.message); // 에러 메시지
-    //   console.error('Error fetching data:', err);
-    // }
+      console.log('Response:', data);
+    } catch (err) {
+      setError(err.message); // 에러 메시지
+      console.error('Error fetching data:', err);
+    }
   };
 
   return (
