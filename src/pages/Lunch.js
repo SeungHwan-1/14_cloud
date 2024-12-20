@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 
 const LoadLunch = async (e) => {
+  const [responseData, setResponseData] = useState(null);
+  const [error, setError] = useState(null);
+
   e.preventDefault();
 
   try {
