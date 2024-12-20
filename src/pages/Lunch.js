@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
 
-const LoadLunch = async (e) => {
+
+
+const Lunch = () => {
   const [responseData, setResponseData] = useState(null);
   const [error, setError] = useState(null);
+const LoadLunch = async (e) => {
+  
 
   e.preventDefault();
 
@@ -25,7 +29,7 @@ const LoadLunch = async (e) => {
     console.error('Error fetching data:', err);
   }
 
-
+}
 
   return (
     <>
