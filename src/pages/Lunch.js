@@ -12,14 +12,14 @@ const LoadLunch = async (e) => {
 
   try {
     const response = await fetch(
-      'https://open.neis.go.kr/hub/mealServiceDietInfo?KEY=e2d93272fec44184b467b6accf92f079&ATPT_OFCDC_SC_CODE=T10&SD_SCHUL_CODE=9290083',
+      '	https://open.neis.go.kr/hub/mealServiceDietInfo?KEY=e2d93272fec44184b467b6accf92f079&ATPT_OFCDC_SC_CODE=T10&Type=json&pIndex=1&pSize=100&ATPT_OFCDC_SC_CODE=T10&SD_SCHUL_CODE=9290083',
       { method: 'GET',
         headers: {
           'Accept': 'application/json',  // 응답으로 JSON을 요구
         }
        }
     );
-
+    
     if (!response.ok) {
       throw new Error(`HTTP error! Status: ${response.status}`); // 응답 코드 체크
     }
