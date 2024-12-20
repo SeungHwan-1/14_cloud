@@ -21,7 +21,7 @@ const LoadLunch = async (e) => {
     setError(err.message);
     console.error('Error fetching data:', err);
   }
-};
+
 
 
   return (
@@ -36,7 +36,7 @@ const LoadLunch = async (e) => {
     </>
   );
 
-
+};
 export default Lunch;
 
 
